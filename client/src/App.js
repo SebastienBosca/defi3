@@ -46,7 +46,7 @@ class App extends Component {
     // récupérer la liste des comptes enregistrés pour le vote
     const list_voters = await contract.methods.RegVoters.call;
     // Mettre à jour le state 
-    this.setState({ voting: voting });
+    this.setState({ list_voters: list_voters });
   }; 
 
   voting = async() => {
