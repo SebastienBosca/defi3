@@ -10,7 +10,7 @@ import getWeb3 from "./getWeb3";
 import "./App.css";
 
 class App extends Component {
-  state = { web3: null, accounts: null, contract: null, voting: null };
+  state = { web3: null, accounts: null, contract: null, list_voters: null };
 
   componentWillMount = async () => {
     try {
