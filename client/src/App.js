@@ -49,7 +49,7 @@ class App extends Component {
     this.setState({ list_voters: list_voters });
   }; 
 
-  voting = async() => {
+  list_voters = async() => {
     const { accounts, contract } = this.state;
     const vAddress = this.vAddress.value;
     
