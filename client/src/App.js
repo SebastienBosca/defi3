@@ -86,7 +86,7 @@ class App extends Component {
                     </thead>
                     <tbody>
                       {list_voters !== null && 
-                        list_voters)
+                        list_voters
                       }
                     </tbody>
                   </Table>
