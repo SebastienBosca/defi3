@@ -51,17 +51,17 @@ class App extends Component {
 
   voting = async() => {
     const { accounts, contract } = this.state;
-    const address = this.address.value;
+    const vAddress = this.vAddress.value;
     
     // Interaction avec le smart contract pour enregistrer un votant 
-    await contract.methods.Register(address).send({from: accounts[0]});
+    await contract.methods.Register(vAddress).send({from: accounts[0]});
     // Récupérer la liste des comptes autorisés
     this.runInit();
   }
  
 
   render() {
-    const { voting } = this.state;
+    const { list_voters } = this.state;
     if (!this.state.web3) {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
@@ -85,8 +85,8 @@ class App extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {voting !== null && 
-                        voting.map((a) => <tr><td>{a}</td></tr>)
+                      {list_voters !== null && 
+                        list_voters.map((a) => <tr><td>{a}</td></tr>)
                       }
                     </tbody>
                   </Table>
@@ -101,11 +101,11 @@ class App extends Component {
             <Card.Header><strong>Ajouter un votant</strong></Card.Header>
             <Card.Body>
               <Form.Group controlId="formAddress">
-                <Form.Control type="text" id="address"
-                ref={(input) => { this.address = input }}
+                <Form.Control type="text" id="vAddress"
+                ref={(input) => { this.vAddress = input }}
                 />
               </Form.Group>
-              <Button onClick={ this.voting } variant="dark" > Autoriser </Button>
+              <Button onClick={ this.list_voters } variant="dark" > Autoriser </Button>
             </Card.Body>
           </Card>
           </div>
